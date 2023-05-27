@@ -1,6 +1,5 @@
 tensorflow
 streamlit
-pickle
 numpy
 scikit-learn
 opencv-python
