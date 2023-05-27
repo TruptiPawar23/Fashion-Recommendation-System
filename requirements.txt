@@ -1,1 +1,8 @@
 tensorflow
+streamlit
+os
+pickle
+numpy
+sklearn
+cv2
+tqdm
