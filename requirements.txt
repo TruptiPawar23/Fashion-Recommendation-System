@@ -1,8 +1,7 @@
 tensorflow
 streamlit
-os
 pickle
 numpy
 scikit-learn
-cv2
+opencv-python
 tqdm
