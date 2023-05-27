@@ -3,6 +3,6 @@ streamlit
 os
 pickle
 numpy
-sklearn
+scikit-learn
 cv2
 tqdm
