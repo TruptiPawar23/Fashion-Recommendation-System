@@ -4,3 +4,5 @@ numpy
 scikit-learn
 opencv-python
 tqdm
+# The features.pkl file is required for the project.
+# Please refer to the README for instructions on obtaining the file.
