@@ -16,7 +16,8 @@ def download_file(url, save_path):
     with open(save_path, 'wb') as file:
         file.write(response.content)
 # Download the "features.pkl" file from the external source
-file_url = 'https://drive.google.com/file/d/1BJqWitd8T1147XihhcOEWhhRLLXzoQHf/view?usp=sharing'
+file_id = '1BJqWitd8T1147XihhcOEWhhRLLXzoQHf'
+file_url = f'https://drive.google.com/uc?id={file_id}'
 download_path = 'features.pkl'
 download_file(file_url, download_path)
 feature_list = np.array(pickle.load(open(download_path, 'rb')))
