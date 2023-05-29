@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import io
 import requests
 from PIL import Image
 import pickle
