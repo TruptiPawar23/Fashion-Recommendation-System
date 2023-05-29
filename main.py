@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import requests
 from PIL import Image
 import pickle
 import numpy as np
@@ -10,7 +11,16 @@ from tensorflow.keras.layers import GlobalMaxPooling2D
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
 
-feature_list = np.array(pickle.load(open('features.pkl', 'rb')))
+def download_file(url, save_path):
+    response = requests.get(url)
+    with open(save_path, 'wb') as file:
+        file.write(response.content)
+# Download the "features.pkl" file from the external source
+file_url = 'https://drive.google.com/file/d/1BJqWitd8T1147XihhcOEWhhRLLXzoQHf/view?usp=sharing'
+download_path = 'features.pkl'
+download_file(file_url, download_path)
+feature_list = np.array(pickle.load(open(download_path, 'rb')))
+
 filenames = pickle.load(open('filenames.pkl', 'rb'))
 
 model = ResNet50(weights='imagenet', include_top=False, input_shape=(224,224,3))
