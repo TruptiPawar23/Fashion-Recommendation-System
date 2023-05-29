@@ -15,12 +15,15 @@ def download_file(url, save_path):
     response = requests.get(url)
     with open(save_path, 'wb') as file:
         file.write(response.content)
+
 # Download the "features.pkl" file from the external source
 file_id = '1BJqWitd8T1147XihhcOEWhhRLLXzoQHf'
 file_url = f'https://drive.google.com/uc?id={file_id}'
 download_path = 'features.pkl'
 download_file(file_url, download_path)
-feature_list = np.array(pickle.load(open(download_path, 'rb')))
+with open(download_path, 'rb') as file:
+    features_data = file.read()
+feature_list = np.array(pickle.load(io.BytesIO(features_data)))
 
 filenames = pickle.load(open('filenames.pkl', 'rb'))
 
